@@ -1,0 +1,1 @@
+gunzip -c lat.1.gz | lattice-scale --acoustic-scale=0.08333 --lm-scale=1.0 ark:- ark:- | lattice-to-nbest --n=100 ark:- ark:- | nbest-to-linear ark:- "ark:|gzip -c - > ali.1.gz" "ark,t:| int2sym.pl -f 2- $LANG_DIR/words.txt | gzip -c - > tra.1.gz" "ark,t:| gzip -c - > lmcost.1.gz" "ark,t:| gzip -c - > accost.1.gz"

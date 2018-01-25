@@ -1,0 +1,27 @@
+{
+	"sort": [
+		"_score"
+	],
+	"query": {
+		"nested": {
+			"path": "vocab",
+			"score_mode": "max",
+			"query": {
+				"function_score": {
+					"field_value_factor": {
+						"field": "vocab.max_post",
+						"factor": 1.0,
+						"missing": 0.0
+					},
+					"query": {
+						"constant_score": {
+							"filter": {
+								"match": {"vocab.word": "SHE"}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

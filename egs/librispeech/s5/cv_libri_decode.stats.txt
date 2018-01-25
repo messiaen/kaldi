@@ -1,0 +1,291 @@
+common voice decoded with librispeech model:
+
+Min WER (lmscale=1.0): 32.11
+
+Retrieval from slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20583
+Total false positives: 42109
+Total hypotheses not matching reference window: 0
+Recall: 0.8699
+mAP: 0.606
+
+Retrieval from 1-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 17053
+Total false positives: 4324
+Total hypotheses not matching reference window: 0
+Recall: 0.7208
+mAP: 0.5693
+
+Retrieval from 1-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 17053
+Total false positives: 4324
+Total hypotheses not matching reference window: 0
+Recall: 0.7208
+mAP: 0.5445
+
+Retrieval from 3-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 18136
+Total false positives: 7912
+Total hypotheses not matching reference window: 0
+Recall: 0.7665
+mAP: 0.6009
+
+Retrieval from 3-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 18136
+Total false positives: 7912
+Total hypotheses not matching reference window: 0
+Recall: 0.7665
+mAP: 0.6218
+
+Retrieval from 10-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 19067
+Total false positives: 14227
+Total hypotheses not matching reference window: 0
+Recall: 0.8059
+mAP: 0.6189
+
+Retrieval from 10-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 19067
+Total false positives: 14227
+Total hypotheses not matching reference window: 0
+Recall: 0.8059
+mAP: 0.659
+
+Retrieval from 50-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 19923
+Total false positives: 25113
+Total hypotheses not matching reference window: 0
+Recall: 0.8421
+mAP: 0.6244
+
+Retrieval from 50-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 19923
+Total false positives: 25104
+Total hypotheses not matching reference window: 0
+Recall: 0.8421
+mAP: 0.6896
+
+Retrieval from 100-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20116
+Total false positives: 29488
+Total hypotheses not matching reference window: 0
+Recall: 0.8502
+mAP: 0.6198
+
+Retrieval from 100-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20116
+Total false positives: 29478
+Total hypotheses not matching reference window: 0
+Recall: 0.8502
+mAP: 0.6943
+
+
+Retrieval from 200-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20292
+Total false positives: 33288
+Total hypotheses not matching reference window: 0
+Recall: 0.8577
+mAP: 0.6145
+
+Retrieval from 200-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20291
+Total false positives: 33268
+Total hypotheses not matching reference window: 0
+Recall: 0.8576
+mAP: 0.6974
+
+Retrieval from 300-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20359
+Total false positives: 35135
+Total hypotheses not matching reference window: 0
+Recall: 0.8605
+mAP: 0.6122
+
+Retrieval from 300-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20358
+Total false positives: 35102
+Total hypotheses not matching reference window: 0
+Recall: 0.8604
+mAP: 0.6991
+
+Retrieval from 400-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20401
+Total false positives: 36260
+Total hypotheses not matching reference window: 0
+Recall: 0.8623
+mAP: 0.6111
+
+Retrieval from 400-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20400
+Total false positives: 36217
+Total hypotheses not matching reference window: 0
+Recall: 0.8622
+mAP: 0.6999
+
+
+Retrieval from 500-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20433
+Total false positives: 36979
+Total hypotheses not matching reference window: 0
+Recall: 0.8636
+mAP: 0.6102
+
+Retrieval from 500-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20432
+Total false positives: 36921
+Total hypotheses not matching reference window: 0
+Recall: 0.8636
+mAP: 0.7006
+
+Retrieval from 600-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20449
+Total false positives: 37526
+Total hypotheses not matching reference window: 0
+Recall: 0.8643
+mAP: 0.6095
+
+Retrieval from 600-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20448
+Total false positives: 37453
+Total hypotheses not matching reference window: 0
+Recall: 0.8642
+mAP: 0.7009
+
+Retrieval from 700-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20464
+Total false positives: 37972
+Total hypotheses not matching reference window: 0
+Recall: 0.8649
+mAP: 0.6096
+
+Retrieval from 700-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20463
+Total false positives: 37890
+Total hypotheses not matching reference window: 0
+Recall: 0.8649
+mAP: 0.7011
+
+Retrieval from 800-best slfs:
+
+Total speech duration (seconds): 11998.26
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20478
+Total false positives: 38344
+Total hypotheses not matching reference window: 0
+Recall: 0.8655
+mAP: 0.6095
+
+Retrieval from 800-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20475
+Total false positives: 38238
+Total hypotheses not matching reference window: 0
+Recall: 0.8654
+mAP: 0.7012
+
+Retrieval from 900-best vocab (mock slfs with max arc score per word per utt):
+
+Total speech duration (seconds): 12129.46
+Total number of terms: 4039
+Total possible hits: 23660
+Total true positives: 20485
+Total false positives: 38505
+Total hypotheses not matching reference window: 0
+Recall: 0.8658
+mAP: 0.702

@@ -1,0 +1,55 @@
+{
+	"mappings": {
+		"transcript": {
+			"properties": {
+				"vocab": {
+					"type": "nested",
+					"properties": {
+						"word": {
+							"type": "text",
+							"analyzer": "english"
+						},
+						"utt_freq": {"type": "float"},
+						"max_post": {"type": "float"},
+						"min_post": {"type": "float"},
+						"mean_post": {"type": "float"},
+						"sum_posts": {"type": "float"}
+					}
+				},
+				"ngrams": {
+					"type": "nested",
+					"properties": {
+						"ngram": {
+							"type": "text",
+							"analyzer": "english"
+						},
+						"posterior": {"type": "float"}
+					}
+				},
+				"nbest": {
+					"type": "nested",
+					"properties": {
+						"text": {
+							"type": "text",
+							"analyzer": "english"
+						},
+						"rank": {"type": "int"},
+						"confidence": {"type": "float"},
+						"ac_score": {"type": "float"},
+						"lm_score": {"type": "float"},
+						"combined_score": {"type": "float"},
+						"posterior": {"type": "float"}
+					}
+				},
+				"one_best": {
+					"properties": {
+						"word": {"type": "keyword"},
+						"start_time": {"type": "float"},
+						"stop_time": {"type": "float"},
+						"posterior": {"type": "float"}
+					}
+				}
+			}
+		}
+	}
+}
