@@ -1,0 +1,154 @@
+Retrieval of 1, 2, and 3 grams from lattice:
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 128621
+Total false positives: 76297
+Total hypotheses not matching reference window: 0
+Recall: 0.9108
+mAP: 0.8636
+
+1-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 106867
+Total false positives: 8539
+Total hypotheses not matching reference window: 0
+Recall: 0.7568
+mAP: 0.6734
+3-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 112892
+Total false positives: 13792
+Total hypotheses not matching reference window: 0
+Recall: 0.7994
+mAP: 0.7276
+10-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 118499
+Total false positives: 23796
+Total hypotheses not matching reference window: 0
+Recall: 0.8391
+mAP: 0.7767
+50-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 123621
+Total false positives: 41972
+Total hypotheses not matching reference window: 0
+Recall: 0.8754
+mAP: 0.8218
+100-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 124975
+Total false positives: 49659
+Total hypotheses not matching reference window: 0
+Recall: 0.885
+mAP: 0.8335
+200-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 126309
+Total false positives: 56317
+Total hypotheses not matching reference window: 0
+Recall: 0.8944
+mAP: 0.8448
+300-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 126833
+Total false positives: 59753
+Total hypotheses not matching reference window: 0
+Recall: 0.8982
+mAP: 0.8494
+400-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 127149
+Total false positives: 61950
+Total hypotheses not matching reference window: 0
+Recall: 0.9004
+mAP: 0.8522
+500-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 127395
+Total false positives: 63473
+Total hypotheses not matching reference window: 0
+Recall: 0.9021
+mAP: 0.8544
+600-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 127517
+Total false positives: 64600
+Total hypotheses not matching reference window: 0
+Recall: 0.903
+mAP: 0.8554
+700-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 127660
+Total false positives: 65495
+Total hypotheses not matching reference window: 0
+Recall: 0.904
+mAP: 0.8565
+800-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 127755
+Total false positives: 66254
+Total hypotheses not matching reference window: 0
+Recall: 0.9047
+mAP: 0.8573
+900-best results
+
+
+Total speech duration (seconds): 19229.57
+Total number of terms: 83038
+Total possible hits: 141215
+Total true positives: 127816
+Total false positives: 66915
+Total hypotheses not matching reference window: 0
+Recall: 0.9051
+mAP: 0.8578

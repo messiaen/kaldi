@@ -22,7 +22,7 @@ Total hypotheses not matching reference window: 0
 Recall: 0.8539
 mAP: 0.7109
 
-Retrieval from 1-best vocab (mock slfs with max arc score per word per utt):
+Retrieval from 1-best vocab (mock slfs with max arc score per word per utt):50	
 
 Total speech duration (seconds): 19229.57
 Total number of terms: 7597
