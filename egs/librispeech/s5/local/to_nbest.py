@@ -11,6 +11,8 @@ from concurrent.futures import ThreadPoolExecutor
 import tempfile
 import io
 from functools import partial
+from elasticsearch import Elasticsearch
+from elasticsearch.helpers import streaming_bulk
 
 
 MIN_DIFF = 1e-32
@@ -344,7 +346,7 @@ def convert_arc_posts_file(f):
 
     all_words = read_utt_posts(f)
     for utt_id, words in all_words.items():
-        for i (word, posts) in enumerate(words.items()):
+        for i, (word, posts) in enumerate(words.items()):
             max_post = np.map(posts)
             posts.append((utt_id, word, max_post))
     return posts
@@ -386,13 +388,28 @@ def main():
 #        for ctm in ctms[:2]:
 #            for row in ctm[:3]:
 #                print(row)
-        vocab = compute_vocab(aligned_lat_fns, min_post=0.0001)
-        for vocab_lst in vocab[:2]:
-            for arc in vocab_lst[:3]:
-                print(arc)
-#        nbest_lists = compute_nbest_lists(aligned_lat_fns[:1], n=200)
-#        for hyp in nbest_lists[:3]:
-#                print(hyp)
+        #vocab = compute_vocab(aligned_lat_fns, min_post=0.0001)
+        #for vocab_lst in vocab[:2]:
+            #for arc in vocab_lst[:3]:
+                #print(arc)
+        es = Elasticsearch(['aec9e137f0ed011e8a53b0a9d5d7954a-1572735085.us-east-1.elb.amazonaws.com:9200'])
+        nbest_lists = compute_nbest_lists(aligned_lat_fns, n=100)
+        actions = []
+        for hyp in nbest_lists:
+            print(hyp)
+            actions.append({
+                '_index': 'test_nbest_1',
+                '_type': 'transcript',
+                '_id': '-'.join(hyp[:2]),
+                '_source': {
+                    'text': hyp[2],
+                    'rank': hyp[1],
+                    'confidence': hyp[6],
+                    'posterior': hyp[7]}})
+
+        for ok, item in streaming_bulk(es, actions):
+            if not ok:
+                raise Exception(str(item))
 
 
 if __name__ == '__main__':
