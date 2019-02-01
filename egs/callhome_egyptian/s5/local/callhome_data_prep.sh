@@ -12,7 +12,7 @@ stage=0
 export LC_ALL=C
 
 
-if [ $# -lt 6 ]; then
+if [ $# -lt 2 ]; then
    echo "Arguments should be the location of the Callhome Egyptian Arabic Speech and Transcript Directories, se
 e ../run.sh for example."
    exit 1;
@@ -43,70 +43,70 @@ mkdir links/
 ln -s $* links
 
 # Basic spot checks to see if we got the data that we needed
-if [ ! -d links/LDC97S45 -o ! -d links/LDC97T19 ];
+if [ ! -d links/LDC97S42 -o ! -d links/LDC97T14 ];
 then
         echo "The speech and the data directories need to be named LDC97S45 and LDC97T19 respectively"
         exit 1;
 fi
-if [ ! -d links/LDC2002S37 -o ! -d links/LDC2002T38 ];
-then
-        echo "The Callhome supplement directories need to be named LDC2002S37 and LDC2002T38."
-        o
-        exit 1;
-fi
-if [ ! -d links/LDC2002S22 -o ! -d links/LDC2002T39 ];
-then
-        echo "The H5-ECA directories need to be named LDC2002S22 and LDC2002T39."
-        exit 1;
-fi
+#if [ ! -d links/LDC2002S37 -o ! -d links/LDC2002T38 ];
+#then
+#        echo "The Callhome supplement directories need to be named LDC2002S37 and LDC2002T38."
+#        o
+#        exit 1;
+#fi
+#if [ ! -d links/LDC2002S22 -o ! -d links/LDC2002T39 ];
+#then
+#        echo "The H5-ECA directories need to be named LDC2002S22 and LDC2002T39."
+#        exit 1;
+#fi
 
-if [ ! -d links/LDC97S45/CALLHOME/ARABIC/DEVTEST -o ! -d links/LDC97S45/CALLHOME/ARABIC/EVLTEST -o ! -d links/LDC97S45/CALLHOME/ARABIC/TRAIN ];
+if [ ! -d links/LDC97S42/CALLHOME/ENGLISH/SPEECH/DEVTEST -o ! -d links/LDC97S42/CALLHOME/ENGLISH/SPEECH/EVLTEST -o ! -d links/LDC97S42/CALLHOME/ENGLISH/SPEECH/TRAIN ];
 then
         echo "Dev, Eval or Train directories missing or not properly organised within the speech data dir"
         exit 1;
 fi
 
 #Check the transcripts directories as well to see if they exist
-if [ ! -d links/LDC97T19/callhome_arabic_trans_970711/transcrp/devtest -o ! -d links/LDC97T19/callhome_arabic_trans_970711/transcrp/evaltest -o ! -d links/LDC97T19/callhome_arabic_trans_970711/transcrp/train ]
+if [ ! -d links/LDC97T14/callhome_english_trans_970711/transcrpt/devtest -o ! -d links/LDC97T14/callhome_english_trans_970711/transcrpt/evaltest -o ! -d links/LDC97T14/callhome_english_trans_970711/transcrpt/train ]
 then
         echo "Transcript directories missing or not properly organised"
         exit 1;
 fi
 
-if [ ! -d links/LDC2002S37/SPEECH ];
-then
-        echo "Callhome supplement directories missing or not properly organised within the speech data dir"
-        exit 1;
-fi
+#if [ ! -d links/LDC2002S37/SPEECH ];
+#then
+#        echo "Callhome supplement directories missing or not properly organised within the speech data dir"
+#        exit 1;
+#fi
 
-if [ ! -d links/LDC2002T38/ch_ara_transcr_suppl/transcr ]
-then
-        echo "Callhome supplement Transcript directories missing or not properly organised"
-        exit 1;
-fi
+#if [ ! -d links/LDC2002T38/ch_ara_transcr_suppl/transcr ]
+#then
+#        echo "Callhome supplement Transcript directories missing or not properly organised"
+#        exit 1;
+#fi
 
-if [ ! -d links/LDC2002S22/SPEECH ];
-then
-        echo "H5 directories missing or not properly organised within the speech data dir"
-        exit 1;
-fi
+#if [ ! -d links/LDC2002S22/SPEECH ];
+#then
+#        echo "H5 directories missing or not properly organised within the speech data dir"
+#        exit 1;
+#fi
 
-if [ ! -d links/LDC2002T39/transcr ]
-then
-        echo "H5 Transcript directories missing or not properly organised"
-        exit 1;
-fi
+#if [ ! -d links/LDC2002T39/transcr ]
+#then
+#        echo "H5 Transcript directories missing or not properly organised"
+#        exit 1;
+#fi
 
-speech_train=$dir/links/LDC97S45/CALLHOME/ARABIC/TRAIN
-speech_dev=$dir/links/LDC97S45/CALLHOME/ARABIC/DEVTEST
-speech_test=$dir/links/LDC97S45/CALLHOME/ARABIC/EVLTEST
-transcripts_train=$dir/links/LDC97T19/callhome_arabic_trans_970711/transcrp/train/roman
-transcripts_dev=$dir/links/LDC97T19/callhome_arabic_trans_970711/transcrp/devtest/roman
-transcripts_test=$dir/links/LDC97T19/callhome_arabic_trans_970711/transcrp/evaltest/roman
-speech_sup=$dir/links/LDC2002S37/SPEECH
-transcripts_sup=$dir/links/LDC2002T38/ch_ara_transcr_suppl/transcr
-speech_h5=$dir/links/LDC2002S22/SPEECH
-transcripts_h5=$dir/links/LDC2002T39/transcr
+speech_train=$dir/links/LDC97S42/CALLHOME/ENGLISH/SPEECH/TRAIN
+speech_dev=$dir/links/LDC97S42/CALLHOME/ENGLISH/SPEECH/DEVTEST
+speech_test=$dir/links/LDC97S42/CALLHOME/ENGLISH/SPEECH/EVLTEST
+transcripts_train=$dir/links/LDC97T14/callhome_english_trans_970711/transcrpt/train
+transcripts_dev=$dir/links/LDC97T14/callhome_english_trans_970711/transcrpt/devtest
+transcripts_test=$dir/links/LDC97T14/callhome_english_trans_970711/transcrpt/evaltest
+#speech_sup=$dir/links/LDC2002S37/SPEECH
+#transcripts_sup=$dir/links/LDC2002T38/ch_ara_transcr_suppl/transcr
+#speech_h5=$dir/links/LDC2002S22/SPEECH
+#transcripts_h5=$dir/links/LDC2002T39/transcr
 
 fcount_train=`find ${speech_train} -iname '*.SPH' | wc -l`
 fcount_dev=`find ${speech_dev} -iname '*.SPH' | wc -l`
@@ -114,10 +114,10 @@ fcount_test=`find ${speech_test} -iname '*.SPH' | wc -l`
 fcount_t_train=`find ${transcripts_train} -iname '*.txt' | wc -l`
 fcount_t_dev=`find ${transcripts_dev} -iname '*.txt' | wc -l`
 fcount_t_test=`find ${transcripts_test} -iname '*.txt' | wc -l`
-fcount_sup=`find ${speech_sup} -iname '*.SPH' | wc -l`
-fcount_t_sup=`find ${transcripts_sup} -iname '*.txt' | wc -l`
-fcount_h5=`find ${speech_h5} -iname '*.SPH' | wc -l`
-fcount_t_h5=`find ${transcripts_h5} -iname '*.txt' | wc -l`
+#fcount_sup=`find ${speech_sup} -iname '*.SPH' | wc -l`
+#fcount_t_sup=`find ${transcripts_sup} -iname '*.txt' | wc -l`
+#fcount_h5=`find ${speech_h5} -iname '*.SPH' | wc -l`
+#fcount_t_h5=`find ${transcripts_h5} -iname '*.txt' | wc -l`
 
 #Now check if we got all the files that we needed
 if [ $fcount_train != 80 -o $fcount_dev != 20 -o $fcount_test != 20 -o $fcount_t_train != 80 -o $fcount_t_dev != 20 -o $fcount_t_test != 20 ];
@@ -126,18 +126,18 @@ then
         echo "The paritions should contain 80/20/20 files"
         exit 1;
 fi
-if [ $fcount_sup != 20 -o $fcount_t_sup != 20 ];
-then
-        echo "Incorrect number of files in the ECA sup data directories"
-        echo "The paritions should contain 20/20 files"
-        exit 1;
-fi
-if [ $fcount_h5 != 20 -o $fcount_t_h5 != 20 ];
-then
-        echo "Incorrect number of files in the H5 data directories"
-        echo "The paritions should contain 20/20 files"
-        exit 1;
-fi
+#if [ $fcount_sup != 20 -o $fcount_t_sup != 20 ];
+#then
+#        echo "Incorrect number of files in the ECA sup data directories"
+#        echo "The paritions should contain 20/20 files"
+#        exit 1;
+#fi
+#if [ $fcount_h5 != 20 -o $fcount_t_h5 != 20 ];
+#then
+#        echo "Incorrect number of files in the H5 data directories"
+#        echo "The paritions should contain 20/20 files"
+#        exit 1;
+#fi
 
 if [ $stage -le 0 ]; then
   #Gather all the speech files together to create a file list
@@ -145,8 +145,8 @@ if [ $stage -le 0 ]; then
       find $speech_train -iname '*.sph';
       find $speech_dev -iname '*.sph';
       find $speech_test -iname '*.sph';
-      find $speech_sup -iname '*.sph';
-      find $speech_h5 -iname '*.sph';
+      #find $speech_sup -iname '*.sph';
+      #find $speech_h5 -iname '*.sph';
   )  > $tmpdir/callhome_train_sph.flist
 
   #Get all the transcripts in one place
@@ -155,8 +155,8 @@ if [ $stage -le 0 ]; then
     find $transcripts_train -iname '*.txt';
     find $transcripts_dev -iname '*.txt';
     find $transcripts_test -iname '*.txt';
-    find $transcripts_sup -iname '*.txt';
-    find $transcripts_h5 -iname '*.txt';
+    #find $transcripts_sup -iname '*.txt';
+    #find $transcripts_h5 -iname '*.txt';
   )  > $tmpdir/callhome_train_transcripts.flist
 
 fi

@@ -4,7 +4,8 @@
 # Set this to somewhere where you want to put your data, or where
 # someone else has already put it.  You'll want to change this
 # if you're not on the CLSP grid.
-data=/export/a15/vpanayotov/data
+#data=/export/a15/vpanayotov/data
+data=/export/corpora
 
 # base url for downloads.
 data_url=www.openslr.org/resources/12
@@ -19,27 +20,22 @@ stage=1
 # you might not want to do this for interactive shells.
 set -e
 
+# download the data.  Note: we're using the 100 hour setup for
+# now; later in the script we'll download more and use it to train neural
+# nets.
+#for part in dev-clean test-clean dev-other test-other train-clean-100; do
+#  local/download_and_untar.sh $data $data_url $part
+#done
 
-if [ $stage -le 1 ]; then
-  # download the data.  Note: we're using the 100 hour setup for
-  # now; later in the script we'll download more and use it to train neural
-  # nets.
-  for part in dev-clean test-clean dev-other test-other train-clean-100; do
-    local/download_and_untar.sh $data $data_url $part
-  done
+# download the LM resources
+#local/download_lm.sh $lm_url data/local/lm
 
-
-  # download the LM resources
-  local/download_lm.sh $lm_url data/local/lm
-fi
-
-if [ $stage -le 2 ]; then
-  # format the data as Kaldi data directories
-  for part in dev-clean test-clean dev-other test-other train-clean-100; do
-    # use underscore-separated names in data directories.
-    local/data_prep.sh $data/LibriSpeech/$part data/$(echo $part | sed s/-/_/g)
-  done
-fi
+# format the data as Kaldi data directories
+for part in train-clean-360 train-other-500; do
+  # use underscore-separated names in data directories.
+  local/data_prep.sh $data/LibriSpeech/$part data/$(echo $part | sed s/-/_/g)
+done
+exit 0
 
 ## Optional text corpus normalization and LM training
 ## These scripts are here primarily as a documentation of the process that has been
@@ -75,13 +71,14 @@ if [ $stage -le 4 ]; then
     data/lang_nosp data/lang_nosp_test_fglarge
 fi
 
-if [ $stage -le 5 ]; then
-  # spread the mfccs over various machines, as this data-set is quite large.
-  if [[  $(hostname -f) ==  *.clsp.jhu.edu ]]; then
-    mfcc=$(basename mfccdir) # in case was absolute pathname (unlikely), get basename.
-    utils/create_split_dir.pl /export/b{02,11,12,13}/$USER/kaldi-data/egs/librispeech/s5/$mfcc/storage \
-     $mfccdir/storage
-  fi
+exit 0
+
+mfccdir=mfcc
+# spread the mfccs over various machines, as this data-set is quite large.
+if [[  $(hostname -f) ==  *.clsp.jhu.edu ]]; then
+  mfcc=$(basename mfccdir) # in case was absolute pathname (unlikely), get basename.
+  utils/create_split_dir.pl /export/b{02,11,12,13}/$USER/kaldi-data/egs/librispeech/s5/$mfcc/storage \
+    $mfccdir/storage
 fi
 
 

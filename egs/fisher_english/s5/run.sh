@@ -8,8 +8,8 @@ mfccdir=`pwd`/mfcc
 set -e
 
 # the next command produces the data in local/train_all
-local/fisher_data_prep.sh /export/corpora3/LDC/LDC2004T19 /export/corpora3/LDC/LDC2005T19 \
-   /export/corpora3/LDC/LDC2004S13 /export/corpora3/LDC/LDC2005S13
+#local/fisher_data_prep.sh /export/corpora/LDC/LDC2004T19 /export/corpora/LDC/LDC2005T19 \
+#   /export/corpora/LDC/LDC2004S13 /export/corpora/LDC/LDC2005S13
 # You could also try specifying the --calldata argument to this command as below.
 # If specified, the script will use actual speaker personal identification 
 # numbers released with the dataset, i.e. real speaker IDs. Note: --calldata has
@@ -20,24 +20,26 @@ local/fisher_data_prep.sh /export/corpora3/LDC/LDC2004T19 /export/corpora3/LDC/L
 # at BUT:
 # local/fisher_data_prep.sh /mnt/matylda6/jhu09/qpovey/FISHER/LDC2005T19 /mnt/matylda2/data/FISHER/
 
-local/fisher_prepare_dict.sh
+#local/fisher_prepare_dict.sh
 
-utils/prepare_lang.sh data/local/dict "<unk>" data/local/lang data/lang
+#utils/prepare_lang.sh data/local/dict "<unk>" data/local/lang data/lang
 
-local/fisher_train_lms.sh 
-local/fisher_create_test_lang.sh
+#local/fisher_train_lms.sh 
+#local/fisher_create_test_lang.sh
 
 # Use the first 4k sentences as dev set.  Note: when we trained the LM, we used
 # the 1st 10k sentences as dev set, so the 1st 4k won't have been used in the
 # LM training data.   However, they will be in the lexicon, plus speakers
 # may overlap, so it's still not quite equivalent to a test set.
 
-utils/fix_data_dir.sh data/train_all
+#utils/fix_data_dir.sh data/train_all
 
-steps/make_mfcc.sh --nj 20 --cmd "$train_cmd" data/train_all exp/make_mfcc/train_all $mfccdir || exit 1;
+#steps/make_mfcc.sh --nj 200 --cmd "$train_cmd" data/train_all exp/make_mfcc/train_all $mfccdir || exit 1;
 
 utils/fix_data_dir.sh data/train_all
-utils/validate_data_dir.sh data/train_all
+utils/validate_data_dir.sh --no-feats data/train_all
+
+exit 0
 
 
 # The dev and test sets are each about 3.3 hours long.  These are not carefully

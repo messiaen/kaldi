@@ -26,7 +26,7 @@ if [ ! -d "$lexicon/callhome_arabic_lexicon_991012" ]; then
 fi
 
 # Get the two columns of the lexicon we care about
-cat $lexicon/callhome_arabic_lexicon_991012/ar_lex.v07 | awk 'BEGIN {OFS="\t"} {print $1,$3};' \
+cat $lexicon/callhome_english_lexicon_991012/ar_lex.v07 | awk 'BEGIN {OFS="\t"} {print $1,$3};' \
     > $tmpdir/lexicon.1
 
 python local/split_alt_punc.py

@@ -21,12 +21,12 @@ aspire_data=/export/corpora/LDC/LDC2017S21/IARPA-ASpIRE-Dev-Sets-v2.0/data  # JH
 local/fisher_data_prep.sh /export/corpora3/LDC/LDC2004T19 /export/corpora3/LDC/LDC2005T19 \
    /export/corpora3/LDC/LDC2004S13 /export/corpora3/LDC/LDC2005S13
 
-local/fisher_prepare_dict.sh
+#local/fisher_prepare_dict.sh
 
-utils/prepare_lang.sh data/local/dict "<unk>" data/local/lang data/lang
+#utils/prepare_lang.sh data/local/dict "<unk>" data/local/lang data/lang
 
-local/fisher_train_lms.sh  || exit 1;
-local/fisher_create_test_lang.sh || exit 1;
+#local/fisher_train_lms.sh  || exit 1;
+#local/fisher_create_test_lang.sh || exit 1;
 
 # Use the first 4k sentences as dev set.  Note: when we trained the LM, we used
 # the 1st 10k sentences as dev set, so the 1st 4k won't have been used in the
@@ -35,10 +35,10 @@ local/fisher_create_test_lang.sh || exit 1;
 
 utils/fix_data_dir.sh data/train_all
 
-steps/make_mfcc.sh --nj 20 --cmd "$train_cmd" data/train_all exp/make_mfcc/train_all $mfccdir || exit 1;
+#steps/make_mfcc.sh --nj 20 --cmd "$train_cmd" data/train_all exp/make_mfcc/train_all $mfccdir || exit 1;
 
 utils/fix_data_dir.sh data/train_all
-utils/validate_data_dir.sh data/train_all
+utils/validate_data_dir.sh --no-feats data/train_all
 
 # The dev and test sets are each about 3.3 hours long.  These are not carefully
 # done; there may be some speaker overlap with each other and with the training
@@ -50,12 +50,13 @@ utils/subset_data_dir.sh --first data/dev_and_test 5000 data/dev
 utils/subset_data_dir.sh --last data/dev_and_test 5000 data/test
 rm -r data/dev_and_test
 
-steps/compute_cmvn_stats.sh data/dev exp/make_mfcc/dev $mfccdir
-steps/compute_cmvn_stats.sh data/test exp/make_mfcc/test $mfccdir
+#steps/compute_cmvn_stats.sh data/dev exp/make_mfcc/dev $mfccdir
+#steps/compute_cmvn_stats.sh data/test exp/make_mfcc/test $mfccdir
 
 n=$[`cat data/train_all/segments | wc -l` - 10000]
 utils/subset_data_dir.sh --last data/train_all $n data/train
-steps/compute_cmvn_stats.sh data/train exp/make_mfcc/train $mfccdir
+#steps/compute_cmvn_stats.sh data/train exp/make_mfcc/train $mfccdir
+exit 0
 
 
 # Now-- there are 1.6 million utterances, and we want to start the monophone training

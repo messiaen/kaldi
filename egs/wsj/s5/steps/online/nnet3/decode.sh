@@ -75,7 +75,8 @@ if [ "$online_config" == "" ]; then
 fi
 
 mkdir -p $dir/log
-[[ -d $sdata && $data/feats.scp -ot $sdata ]] || split_data.sh $data $nj || exit 1;
+[[ -d $sdata ]] || split_data.sh $data $nj || exit 1;
+#[[ -d $sdata && $data/feats.scp -ot $sdata ]] || split_data.sh $data $nj || exit 1;
 echo $nj > $dir/num_jobs
 
 for f in $online_config $srcdir/${iter}.mdl \

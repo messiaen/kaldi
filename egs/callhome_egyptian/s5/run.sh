@@ -12,40 +12,45 @@ set -e
 # Specify the location of the speech files, the transcripts and the lexicon
 # These are passed off to other scripts in including the one for data and lexicon prep
 
-eca_speech=/export/corpora/LDC/LDC97S45
-eca_transcripts=/export/corpora/LDC/LDC97T19
-eca_lexicon=/export/corpora/LDC/LDC99L22
-sup_speech=/export/corpora/LDC/LDC2002S37
-sup_transcripts=/export/corpora/LDC/LDC2002T38
-h5_speech=/export/corpora/LDC/LDC2002S22
-h5_transcripts=/export/corpora/LDC/LDC2002T39
+#eca_speech=/export/corpora/LDC/LDC97S45
+eca_speech=/export/corpora/LDC/LDC97S42
+#eca_transcripts=/export/corpora/LDC/LDC97T19
+eca_transcripts=/export/corpora/LDC/LDC97T14
+#eca_lexicon=/export/corpora/LDC/LDC99L22
+eca_lexicon=/export/corpora/LDC/LDC97L20
+#sup_speech=/export/corpora/LDC/LDC2002S37
+#sup_transcripts=/export/corpora/LDC/LDC2002T38
+#h5_speech=/export/corpora/LDC/LDC2002S22
+#h5_transcripts=/export/corpora/LDC/LDC2002T39
 split=local/splits
 
-local/callhome_data_prep.sh $eca_speech $eca_transcripts $sup_speech $sup_transcripts $h5_speech $h5_transcripts
+#local/callhome_data_prep.sh $eca_speech $eca_transcripts $sup_speech $sup_transcripts $h5_speech $h5_transcripts
+local/callhome_data_prep.sh $eca_speech $eca_transcripts
 
-local/callhome_prepare_dict.sh $eca_lexicon
+#local/fisher_prepare_dict.sh $eca_lexicon
 
 # Added c,j, v to the non silences phones manually
-utils/prepare_lang.sh data/local/dict "<unk>" data/local/lang data/lang
+#utils/prepare_lang.sh data/local/dict "<unk>" data/local/lang data/lang
 
 # Make sure that you do not use your test and your dev sets to train the LM
 # Some form of cross validation is possible where you decode your dev/set based on an
 # LM that is trained on  everything but that that conversation
-local/callhome_train_lms.sh $split
-local/callhome_create_test_lang.sh
+#local/callhome_train_lms.sh $split
+#local/callhome_create_test_lang.sh
 
 utils/fix_data_dir.sh data/local/data/train_all
 
-steps/make_mfcc.sh --nj 20 --cmd "$train_cmd" data/local/data/train_all exp/make_mfcc/train_all $mfccdir || exit 1;
+#steps/make_mfcc.sh --nj 20 --cmd "$train_cmd" data/local/data/train_all exp/make_mfcc/train_all $mfccdir || exit 1;
 
 utils/fix_data_dir.sh data/local/data/train_all
-utils/validate_data_dir.sh data/local/data/train_all
+utils/validate_data_dir.sh --no-feats data/local/data/train_all
 
 cp -r data/local/data/train_all data/train_all
 
 # Creating data partitions for the pipeline
 
 local/create_splits $split
+exit 0
 
 # Now compute CMVN stats for the train, dev and test subsets
 steps/compute_cmvn_stats.sh data/dev exp/make_mfcc/dev $mfccdir
